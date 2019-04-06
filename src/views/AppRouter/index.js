@@ -11,12 +11,13 @@ class AppRouter extends Component {
         return (
             <div>
                 <Contacts contactList={this.props.contactList} />
+                sdsd
             </div>
         )
     }
 }
 
-const mapStateToProps = ({contacts}) => ({
+const mapStateToProps = ({ contacts }) => ({
     contactList: contacts.contactList
 })
 
