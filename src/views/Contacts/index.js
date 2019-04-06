@@ -12,7 +12,6 @@ class Contacts extends Component {
       <div>
         <ul>
           {contacts}
-          <p>nice day</p>
         </ul>
       </div>
     )
