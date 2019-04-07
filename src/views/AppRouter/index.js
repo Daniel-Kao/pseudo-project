@@ -4,20 +4,22 @@ import { getMockData } from '../../actions'
 import Contacts from '../Contacts'
 
 class AppRouter extends Component {
-    componentDidMount() {
+    // componentDidMount() {
+    // }
+    getMockData = (e) => {
         this.props.getMockData()
     }
     render() {
+
         return (
             <div>
-                <Contacts contactList={this.props.contactList} />
-                sdsd
+                <Contacts getMockData={this.getMockData} contactList={this.props.contactList} />
             </div>
         )
     }
 }
 
-const mapStateToProps = ({ contacts }) => ({
+const mapStateToProps = ({ contacts }) => console.log(contacts) || ({
     contactList: contacts.contactList
 })
 

@@ -3,11 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isDev = process.env.NODE_ENV === 'development'
 const autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
 
 const config = {
-  entry: {
-    path: path.join(__dirname, 'src/entry/index')
-  },
+  entry: path.join(__dirname, 'src/entry/index'),
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].[hash].js',
@@ -47,7 +46,7 @@ const config = {
       },
       {//CSS处理
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ],
+        use: ['style-loader', 'css-loader'],
         exclude: /node_modules/,
       },
 
@@ -66,7 +65,8 @@ const config = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, 'index.html')
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 }
 
